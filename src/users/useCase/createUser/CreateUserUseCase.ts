@@ -1,11 +1,11 @@
-import { UserRepository } from "../../repositories/implementations/UserRepository";
-import { UserDTO } from "../../dtos/UserDTO";
 import { AppError } from "../../../utils/AppError"
+import { IUserDTO } from "../../dtos/IUserDTO";
+import { IUserRepository } from "../../repositories/IUserRepository";
 
 class CreateUserUseCase {
-    constructor(private userRepository: UserRepository) { }
+    constructor(private userRepository: IUserRepository) { }
 
-    async execute({ name, email, password }: UserDTO) {
+    async execute({ name, email, password }: IUserDTO) {
         const user = this.userRepository.findByEmail(email);
 
         if (user) {
