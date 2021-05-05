@@ -19,11 +19,11 @@ class UsersRepository implements IUsersRepository {
         });
 
         this.usersList.push(user);
-
+        console.log(this.usersList);
         return user;
     }
 
-    async findByEmail(email: string): Promise<User | undefined> {
+    async findByEmail(email: string): Promise<User> {
         const user = this.usersList.find(user => user.email === email);
         return user;
     }
