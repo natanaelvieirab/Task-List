@@ -7,6 +7,7 @@ class Task {
     title: string;
     description: string;
     done: boolean;
+    id_user: string;
     created_at: Date;
     updated_at: Date;
 
