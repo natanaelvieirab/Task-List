@@ -1,13 +1,10 @@
-import express, { Router, Request, Response } from "express";
-import { UsersRepository } from "../users/repositories/implementations/UsersRepository";
+import { Router } from "express";
 import { CreateUserController } from "../users/useCase/createUser/CreateUserController";
-import { CreateUserUseCase } from "../users/useCase/createUser/CreateUserUseCase";
+
 
 var usersRoutes = Router();
 
-const usersRepository = new UsersRepository();
-const createUserUseCase = new CreateUserUseCase(usersRepository);
-const createUserController = new CreateUserController(createUserUseCase);
+const createUserController = new CreateUserController();
 
 usersRoutes.post("/", createUserController.handle);
 
