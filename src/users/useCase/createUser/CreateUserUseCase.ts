@@ -1,10 +1,12 @@
-import { AppError } from "../../../utils/AppError"
+
+import { AppError } from "../../../shared/errors/AppError";
 import { IUserDTO } from "../../dtos/IUserDTO";
 import { User } from "../../entities/User";
-import { IUserRepository } from "../../repositories/IUserRepository";
+import { IUsersRepository } from "../../repositories/IUsersRepository";
+
 
 class CreateUserUseCase {
-    constructor(private userRepository: IUserRepository) { }
+    constructor(private userRepository: IUsersRepository) { }
 
     async execute({ name, email, password }: IUserDTO): Promise<User> {
         const user = this.userRepository.findByEmail(email);
