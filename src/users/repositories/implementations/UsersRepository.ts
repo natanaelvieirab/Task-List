@@ -1,13 +1,13 @@
 import { IUserDTO } from "../../dtos/IUserDTO";
 import { User } from "../../entities/User";
-import { IUserRepository } from "../IUserRepository";
+import { IUsersRepository } from "../IUsersRepository";
 
 
-class UserRepository implements IUserRepository {
+class UsersRepository implements IUsersRepository {
 
     usersList: User[] = [];
 
-    async createUser({ name, email, password }: IUserDTO): Promise<void> {
+    async createUser({ name, email, password }: IUserDTO): Promise<User> {
         const user = new User();
 
         Object.assign(user, {
@@ -19,6 +19,8 @@ class UserRepository implements IUserRepository {
         });
 
         this.usersList.push(user);
+
+        return user;
     }
 
     async findByEmail(email: string): Promise<User | undefined> {
@@ -26,6 +28,10 @@ class UserRepository implements IUserRepository {
         return user;
     }
 
+    async findById(id: string): Promise<User> {
+        return this.usersList.find(user => user.id === id);
+    }
+
 }
 
-export { UserRepository };
+export { UsersRepository };

@@ -1,5 +1,6 @@
-import { IUserRepository } from "../../../users/repositories/IUserRepository";
-import { AppError } from "../../../utils/AppError";
+
+import { AppError } from "../../../shared/errors/AppError";
+import { IUsersRepository } from "../../../users/repositories/IUsersRepository";
 import { ITaskDTO } from "../../dtos/ITaskDTO";
 import { Task } from "../../entities/Task";
 import { ITasksRepository } from "../../repositories/ITasksRepository";
@@ -10,7 +11,7 @@ class CreateTaskUseCase {
 
     constructor(
         private taskRepository: ITasksRepository,
-        private userRepository: IUserRepository
+        private userRepository: IUsersRepository
     ) { }
 
     async execute({ title, description, id_user }: ITaskDTO): Promise<Task> {
