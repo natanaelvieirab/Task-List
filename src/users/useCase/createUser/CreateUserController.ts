@@ -11,13 +11,13 @@ class CreateUserController {
 
         const { name, email, password } = request.body;
 
-        this.createUserUseCase.execute({
+        const user = this.createUserUseCase.execute({
             name,
             email,
             password
         });
 
-        return response.status(201).send();
+        return response.status(201).json(user);
     }
 }
 
