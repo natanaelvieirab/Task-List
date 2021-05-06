@@ -28,6 +28,10 @@ class TasksRepository implements ITasksRepository {
         return this.tasks;
     }
 
+    async findById(id: string): Promise<Task> {
+        const task = this.tasks.find(task => task.id === id);
+        return task;
+    }
 }
 
 export { TasksRepository };
