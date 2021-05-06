@@ -19,7 +19,7 @@ class CreateTaskUseCase {
 
     async execute({ title, description, id_user }: ITaskDTO): Promise<Task> {
 
-        const userAlreadyExists = this.userRepository.findById(id_user);
+        const userAlreadyExists = await this.userRepository.findById(id_user);
 
         if (!userAlreadyExists) {
             throw new AppError("User does not exists!");
