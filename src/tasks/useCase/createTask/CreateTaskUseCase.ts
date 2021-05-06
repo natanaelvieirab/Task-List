@@ -19,11 +19,11 @@ class CreateTaskUseCase {
 
     async execute({ title, description, id_user }: ITaskDTO): Promise<Task> {
 
-        // const user = this.userRepository.findById(id_user);
+        const userAlreadyExists = this.userRepository.findById(id_user);
 
-        // if (!user) {
-        //     throw new AppError("User does not exists!");
-        // }
+        if (!userAlreadyExists) {
+            throw new AppError("User does not exists!");
+        }
 
         if (!title) {
             throw new AppError("'Title' properties cannot be empty!");
