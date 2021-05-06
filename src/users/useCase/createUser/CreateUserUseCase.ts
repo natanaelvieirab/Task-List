@@ -1,4 +1,3 @@
-
 import { inject, injectable } from "tsyringe";
 import { AppError } from "../../../shared/errors/AppError";
 import { IUserDTO } from "../../dtos/IUserDTO";
@@ -14,19 +13,19 @@ class CreateUserUseCase {
     ) { }
 
     async execute({ name, email, password }: IUserDTO): Promise<User> {
-        const user = await this.userRepository.findByEmail(email);
+        const userAlreadyExistis = await this.userRepository.findByEmail(email);
 
-        if (user) {
+        if (userAlreadyExistis) {
             throw new AppError("User already exists!");
         }
 
-        const newUser = await this.userRepository.createUser({
+        const user = await this.userRepository.createUser({
             name,
             email,
             password
         });
 
-        return newUser;
+        return user;
     }
 }
 
