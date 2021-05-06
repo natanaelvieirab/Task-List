@@ -24,6 +24,10 @@ class TasksRepository implements ITasksRepository {
         return task;
     }
 
+    async showAllTasks(): Promise<Task[]> {
+        return this.tasks;
+    }
+
 }
 
 export { TasksRepository };
