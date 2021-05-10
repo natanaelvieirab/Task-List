@@ -51,6 +51,18 @@ class TasksRepository implements ITasksRepository {
 
         return task;
     }
+
+    async setDone(id: string, done: boolean): Promise<Task> {
+
+        const position = this.tasks.indexOf(
+            await this.findById(id)
+        );
+
+        this.tasks[position].done = done;
+
+        return this.tasks[position];
+    }
+
 }
 
 export { TasksRepository };
