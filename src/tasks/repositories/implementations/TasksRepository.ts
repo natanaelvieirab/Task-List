@@ -1,10 +1,12 @@
 import { ITaskDTO } from "../../dtos/ITaskDTO";
+import { IUpdateTaskDTO } from "../../dtos/IUpdateTaskDTO";
 import { Task } from "../../entities/Task";
 import { ITasksRepository } from "../ITasksRepository";
 
 
 
 class TasksRepository implements ITasksRepository {
+
 
     tasks: Task[] = [];
 
@@ -30,6 +32,23 @@ class TasksRepository implements ITasksRepository {
 
     async findById(id: string): Promise<Task> {
         const task = this.tasks.find(task => task.id === id);
+        return task;
+    }
+
+    async updateTask({ id, title, description, id_user, created_at }: IUpdateTaskDTO): Promise<Task> {
+        const task = this.tasks.find(task => task.id === id);
+
+        const position = this.tasks.indexOf(task);
+
+        Object.assign(task, {
+            id,
+            title,
+            description,
+            updated_at: new Date
+        });
+
+        this.tasks[position] = task;
+
         return task;
     }
 }
