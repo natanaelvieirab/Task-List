@@ -10,13 +10,13 @@ const tasksRouter = Router();
 const createTasksController = new CreateTaskController();
 const showAllTasksController = new ShowAllTasksController();
 const showOneTaskController = new ShowOneTaskController();
-const updateTaskUseCase = new UpdateTaskController();
+const updateTaskController = new UpdateTaskController();
 const updateDoneController = new UpdateDoneController();
 
 tasksRouter.post("/", createTasksController.handle);
 tasksRouter.get("/", showAllTasksController.handle)
 tasksRouter.get("/:id", showOneTaskController.handle)
-tasksRouter.put("/:id", updateTaskUseCase.handle)
+tasksRouter.put("/:id", updateTaskController.handle)
 tasksRouter.patch("/:id/done", updateDoneController.handle);
 
 export { tasksRouter };
