@@ -10,6 +10,8 @@ interface ITasksRepository {
     findById(id: string): Promise<Task>;
     updateTask(data: IUpdateTaskDTO): Promise<Task>;
     setDone(id: string, done: boolean): Promise<Task>;
+    deleteTask(id: string): Promise<void>;
+    deleteTaskByIdUser(id_user: string): Promise<void>;
 }
 
 export { ITasksRepository };

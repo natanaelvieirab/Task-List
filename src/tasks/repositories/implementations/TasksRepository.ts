@@ -63,6 +63,17 @@ class TasksRepository implements ITasksRepository {
         return this.tasks[position];
     }
 
+    async deleteTask(id: string): Promise<void> {
+        const position = this.tasks.findIndex(task => task.id === id);
+
+        this.tasks.splice(position, 1);
+    }
+
+    async deleteTaskByIdUser(id_user: string): Promise<void> {
+        const updateTasks = this.tasks.filter(task => task.id_user !== id_user);
+
+        this.tasks = updateTasks;
+    }
 }
 
 export { TasksRepository };
