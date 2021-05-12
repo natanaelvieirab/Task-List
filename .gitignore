@@ -2,3 +2,4 @@ node_modules
 .vscode/
 Anotacoes.txt
 yarn.lock
+.env
