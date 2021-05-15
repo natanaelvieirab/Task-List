@@ -9,7 +9,7 @@ class ShowUserController {
 
     async handle(request: Request, response: Response): Promise<Response> {
 
-        const { id } = request.params;
+        const { id } = request.user;
 
         const showUserUseCase = container.resolve(ShowUserUseCase);
 

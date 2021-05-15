@@ -8,7 +8,8 @@ class CreateTaskController {
 
     async handle(request: Request, response: Response): Promise<Response> {
 
-        const { title, description, id_user } = request.body;
+        const { id: id_user } = request.user;
+        const { title, description } = request.body;
 
         const createTaskUseCase = container.resolve(CreateTaskUseCase);
 
