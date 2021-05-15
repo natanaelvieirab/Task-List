@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { ensureAuthenticated } from "../middlewares/ensureAuthenticated";
 import { CreateTaskController } from "../tasks/useCase/createTask/CreateTaskController";
 import { DeleteTaskController } from "../tasks/useCase/deleteTaskController/DeleteTaskController";
 import { ShowAllTasksController } from "../tasks/useCase/showAllTasks/ShowAllTasksController"
@@ -15,6 +16,7 @@ const updateTaskController = new UpdateTaskController();
 const updateDoneController = new UpdateDoneController();
 const deleteTaskController = new DeleteTaskController();
 
+tasksRouter.use(ensureAuthenticated);
 
 tasksRouter.post("/", createTasksController.handle);
 tasksRouter.get("/", showAllTasksController.handle)

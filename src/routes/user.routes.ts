@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { ensureAuthenticated } from "../middlewares/ensureAuthenticated";
 import { CreateUserController } from "../users/useCase/createUser/CreateUserController";
 import { DeleteUserController } from "../users/useCase/deleteUser/DeleteUserController";
 import { ShowUserController } from "../users/useCase/showUser/ShowUserController";
@@ -14,9 +15,9 @@ const deleteUserController = new DeleteUserController();
 
 
 usersRoutes.post("/", createUserController.handle);
-usersRoutes.put("/:id", updateUserController.handle);
-usersRoutes.get("/:id", showUserController.handle);
-usersRoutes.delete("/:id", deleteUserController.handle);
+usersRoutes.put("/", ensureAuthenticated, updateUserController.handle);
+usersRoutes.get("/", ensureAuthenticated, showUserController.handle);
+usersRoutes.delete("/", ensureAuthenticated, deleteUserController.handle);
 
 export { usersRoutes };
 
