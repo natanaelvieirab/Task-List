@@ -1,23 +1,36 @@
-# Task List
+<h1 align="center">Task List</h1>
 
-Task List é uma API, no qual um usuário poderá gerenciar tasks (que traduzido é tarefas).
+## :sparkles: Descrição
+Task List é uma API, no qual o usuário poderá gerenciar tasks (que traduzido é tarefas).
 
-## Status do projeto
+## :construction: Status do projeto
 
-O projeto encontra em produção
+ 🚧 O projeto encontra-se em produção.  🚧
 
-Este projeto é uma API do Task List, onde um usuário poderá realizar gerenciamento de tarefas (tasks).
-https://www.figma.com/file/bxd7eqfT5i2CYxmN40mbI3/Todo-List?node-id=0%3A1
+## Features
+### Usuário
+- [x] Cadastra usuário;
+- [x] Buscar usuários;
+- [x] Buscar usuário especifico;
+- [ ] Atualizar usuário;
+- [ ] Deletar usuário;
 
-## Funções
+### Tarefas
+- [x] Cadastra tarefa de um usuário;
+- [x] Buscar tarefas de um usuário;
+- [x] Buscar todas as tarefas de um usuário ;
+- [ ] Atualizar tarefas de um usuário;
+- [ ] Deletar tarefas;
 
-## Tecnologia
+## :wrench: Tecnologia
 
-As tecnologias usadas:
+Tecnologias usadas:
+- [nodejs](https://nodejs.org/en/);
+- [typeorm](https://typeorm.io/#/);
+- [express](https://expressjs.com/pt-br/);
+- [jsonWebToken](https://jwt.io/);
+- [tsyringe](https://www.npmjs.com/package/tsyringe/v/2.0.1);
+- [uuid](https://www.npmjs.com/package/uuid);
 
-- nodejs;
-- typeorm;
-- express;
-- jsonWebToken;
-- tsyringe
-- uuid
+## Sobre
+Feito com muito :heart: por Natanael Vieira
